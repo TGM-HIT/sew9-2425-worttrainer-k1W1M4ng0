@@ -7,7 +7,8 @@
 <h3 align="center">Worttrainer reloaded</h3>
 
   <p align="center">
-    project_description
+    This project is the task "\[GK\] 9a.1: Worttrainer Reloaded" from school (subject: software development).
+
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
@@ -25,7 +26,10 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+The goal of this task is to create a game for primary school students to practice spelling.
+
+Every round, a picture is shown while the child should type in the corresponding word.
+The input is then checked for spelling mistakes and a message will be printed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
