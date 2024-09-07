@@ -1,0 +1,43 @@
+@startuml
+
+class Wordtrainer {
+    - selected: Integer
+    - wordList: List<Pair<String, String>>
+
+    + Wordtrainer()
+    + Wordtrainer(wordList: List<Pair<String, String>>)
+    + saveTo(strategy: ReadWriter)
+    + loadFrom(strategy: ReadWriter)
+
+    + getCurrentPair(): Pair<String, String>
+    + selectPair(index: Integer): Pair<String, String>
+    + selectRandomPair(): Pair<String, String>
+    + getStatistics(): Statistics
+
+    + checkSolution(word: String): Boolean
+}
+
+
+class Statistics {
+    + correctAnswers: Integer
+    + totalAnswers: Integer
+}
+Wordtrainer *--> Statistics
+
+interface ReadWriter {
+    + saveTo(wordtrainer: Wordtrainer)
+    + loadFrom(wordtrainer: Wordtrainer)
+}
+Wordtrainer ..> ReadWriter
+
+class JsonFileReadWriter implements ReadWriter {
+    + JsonFileReadWriter(filename: String)
+}
+
+
+class UserInterface {
+    + UserInterface(wordtrainer: Wordtrainer)
+}
+UserInterface --> Wordtrainer
+
+@enduml
