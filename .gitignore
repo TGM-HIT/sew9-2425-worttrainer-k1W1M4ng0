@@ -5,3 +5,5 @@ gradle
 
 # Ignore Gradle build output directory
 build
+
+/kls_database.db
