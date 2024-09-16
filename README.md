@@ -8,7 +8,6 @@
 
   <p align="center">
     This project is the task "\[GK\] 9a.1: Worttrainer Reloaded" from school (subject: software development).
-
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
