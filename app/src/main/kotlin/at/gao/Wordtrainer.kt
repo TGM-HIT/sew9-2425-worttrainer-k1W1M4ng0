@@ -1,10 +1,11 @@
 package at.gao
 
+import java.net.URL
 import java.util.Random
 import kotlin.collections.mutableListOf
 
 class Wordtrainer(
-        private var wordList: MutableList<Pair<String, String>> = mutableListOf(defaultPair)
+        private var wordList: MutableList<Pair<String, URL>> = mutableListOf(defaultPair)
 ) {
     private var selected = -1
     private val random = Random()
@@ -15,7 +16,7 @@ class Wordtrainer(
      * Returns the current selected pair, or throws an exception if nothing is selected
      * @return the word and url, as pair
      */
-    fun getCurrentPair(): Pair<String, String> {
+    fun getCurrentPair(): Pair<String, URL> {
         if (selected < 0) throw NoPairSelectedException()
 
         return wordList[selected]
@@ -26,7 +27,7 @@ class Wordtrainer(
      * @param index the index of the pair
      * @return the word and url, as pair
      */
-    fun selectPair(index: Int): Pair<String, String> {
+    fun selectPair(index: Int): Pair<String, URL> {
         if (index >= wordList.size || index < 0) {
             throw IllegalArgumentException("$index is out of bounds")
         }
@@ -39,7 +40,7 @@ class Wordtrainer(
      * Selects a random word and url, and returns it.
      * @return the word and url, as pair
      */
-    fun selectRandomPair(): Pair<String, String> {
+    fun selectRandomPair(): Pair<String, URL> {
         selected = random.nextInt(wordList.size)
 
         return getCurrentPair()
@@ -47,9 +48,7 @@ class Wordtrainer(
 
     /**
      * Checks if a word (without leading and trailing whitespace) is equal to the current selected
-     * word. 
-     * If the guess is correct, the selection is cleared.
-     * Affects statistics.
+     * word. If the guess is correct, the selection is cleared. Affects statistics.
      * @param word the word
      * @return true
      */
@@ -74,6 +73,6 @@ class Wordtrainer(
     )
 
     companion object {
-        val defaultPair = Pair("test", "test")
+        val defaultPair = Pair("test", URL("https://picsum.photos/200"))
     }
 }
