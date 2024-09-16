@@ -3,12 +3,13 @@ package at.gao
 import java.util.Random
 import kotlin.collections.mutableListOf
 
-class Wordtrainer {
+class Wordtrainer(
+        private var wordList: MutableList<Pair<String, String>> = mutableListOf(defaultPair)
+) {
     private var selected = 0
-    private var wordList = mutableListOf(Pair("test", "test"))
-    val statistics = Statistics(0, 0)
-
     private val random = Random()
+
+    val statistics = Statistics(0, 0)
 
     /**
      * Returns the current selected pair, with the first one being the default selection.
@@ -62,4 +63,8 @@ class Wordtrainer {
             var correctAnswers: Int,
             var totalAnswers: Int,
     )
+
+    companion object {
+        val defaultPair = Pair("test", "test")
+    }
 }
