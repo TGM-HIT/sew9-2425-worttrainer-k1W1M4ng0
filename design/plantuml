@@ -38,9 +38,15 @@ class JsonFileReadWriter implements ReadWriter {
 }
 
 
-class UserInterface {
+abstract class UserInterface {
     + UserInterface(wordtrainer: Wordtrainer)
+
+    {abstract} + start(): void
 }
 UserInterface --> Wordtrainer
+
+class JOptionPaneUI extends UserInterface {
+    + JOptionPaneUI(wordtrainer: Wordtrainer)
+}
 
 @enduml
