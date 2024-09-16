@@ -6,16 +6,20 @@ import kotlin.collections.mutableListOf
 class Wordtrainer(
         private var wordList: MutableList<Pair<String, String>> = mutableListOf(defaultPair)
 ) {
-    private var selected = 0
+    private var selected = -1
     private val random = Random()
 
     val statistics = Statistics(0, 0)
 
     /**
-     * Returns the current selected pair, with the first one being the default selection.
+     * Returns the current selected pair, or throws an exception if nothing is selected
      * @return the word and url, as pair
      */
-    fun getCurrentPair() = wordList[selected]
+    fun getCurrentPair(): Pair<String, String> {
+        if (selected < 0) throw NoPairSelectedException()
+
+        return wordList[selected]
+    }
 
     /**
      * Selects a specific word and url, and returns it.
@@ -43,7 +47,9 @@ class Wordtrainer(
 
     /**
      * Checks if a word (without leading and trailing whitespace) is equal to the current selected
-     * word. Affects statistics.
+     * word. 
+     * If the guess is correct, the selection is cleared.
+     * Affects statistics.
      * @param word the word
      * @return true
      */
@@ -52,6 +58,9 @@ class Wordtrainer(
 
         if (correct) {
             ++statistics.correctAnswers
+
+            // clear selection
+            selected = -1
         }
         ++statistics.totalAnswers
 
