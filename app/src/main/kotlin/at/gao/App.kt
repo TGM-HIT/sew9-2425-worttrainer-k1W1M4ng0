@@ -3,13 +3,22 @@
  */
 package at.gao
 
-class App {
-    val greeting: String
-        get() {
-            return "Hello World!"
-        }
-}
+import java.net.URL
 
 fun main() {
-    println(App().greeting)
+    println("Enter a filename (or empty to skip):")
+
+    val filename = readlnOrNull()
+
+    JOptionPaneUI(
+                    Wordtrainer(
+                            mutableListOf(
+                                // TODO remove if save/load is implemented
+                                    Pair("word1", URL("https://picsum.photos/200")),
+                                    Pair("word2", URL("file:///home/venti/Bilder/venti-icon.jpg")),
+                            )
+                    ),
+                    filename
+            )
+            .start()
 }
