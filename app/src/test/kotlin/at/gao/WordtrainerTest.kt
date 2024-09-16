@@ -1,5 +1,6 @@
 package at.gao
 
+import java.net.URL
 import kotlin.collections.mutableListOf
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
@@ -8,8 +9,8 @@ import org.junit.jupiter.api.Test
 class WordtrainerTest {
     val wordlist =
             mutableListOf(
-                    Pair("word1", "url1"),
-                    Pair("word2", "url2"),
+                    Pair("word1", URL("https://picsum.photos/200")),
+                    Pair("word2", URL("https://picsum.photos/200")),
             )
     var wordtrainer = Wordtrainer(wordlist)
 
@@ -32,9 +33,7 @@ class WordtrainerTest {
 
     @Test
     fun `default Selection Should Be None`() {
-        assertThrows(NoPairSelectedException::class.java) {
-            wordtrainer.getCurrentPair()
-        }
+        assertThrows(NoPairSelectedException::class.java) { wordtrainer.getCurrentPair() }
     }
 
     @Test
@@ -85,9 +84,7 @@ class WordtrainerTest {
 
         wordtrainer.checkSolution(wordlist[0].first)
 
-        assertThrows(NoPairSelectedException::class.java) {
-            wordtrainer.getCurrentPair()
-        }
+        assertThrows(NoPairSelectedException::class.java) { wordtrainer.getCurrentPair() }
     }
 
     @Test
@@ -97,9 +94,7 @@ class WordtrainerTest {
         wordtrainer.checkSolution(wordlist[1].first)
 
         assertTrue(wordtrainer.checkSolution(wordlist[0].first), "Pair was switched")
-        
     }
-
 
     @Test
     fun `statistics Should Get Tracked`() {

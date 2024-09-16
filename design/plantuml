@@ -2,16 +2,16 @@
 
 class Wordtrainer {
     - selected: Integer
-    - wordList: List<Pair<String, String>>
+    - wordList: List<Pair<String, URL>>
 
     + Wordtrainer()
-    + Wordtrainer(wordList: List<Pair<String, String>>)
+    + Wordtrainer(wordList: List<Pair<String, URL>>)
     + saveTo(strategy: ReadWriter)
     + loadFrom(strategy: ReadWriter)
 
-    + getCurrentPair(): Pair<String, String>
-    + selectPair(index: Integer): Pair<String, String>
-    + selectRandomPair(): Pair<String, String>
+    + getCurrentPair(): Pair<String, URL>
+    + selectPair(index: Integer): Pair<String, URL>
+    + selectRandomPair(): Pair<String, URL>
     + getStatistics(): Statistics
 
     + checkSolution(word: String): Boolean
