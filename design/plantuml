@@ -24,6 +24,9 @@ class Statistics {
 }
 Wordtrainer *--> Statistics
 
+class NoPairSelectedException extends RuntimeException
+Wordtrainer ..> NoPairSelectedException
+
 interface ReadWriter {
     + saveTo(wordtrainer: Wordtrainer)
     + loadFrom(wordtrainer: Wordtrainer)
