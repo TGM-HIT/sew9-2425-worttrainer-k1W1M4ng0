@@ -7,3 +7,9 @@ gradle
 build
 
 /kls_database.db
+
+.settings
+bin
+.classpath
+.project
+
