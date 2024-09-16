@@ -69,7 +69,11 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+![Screenshot](./resources/screenshot.png) 
+
+A dialog is shown with the statistics, the next image and an input field. 
+Enter a word in the input field to guess. Leading and trailing whitespace is trimmed.
+Leave the field empty or close the dialog to exit the game.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
