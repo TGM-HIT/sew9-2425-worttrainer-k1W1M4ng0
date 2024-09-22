@@ -10,11 +10,17 @@ import javax.swing.JPanel
 import javax.swing.JTextField
 import javax.imageio.ImageIO
 
+/**
+ * This class is an implementation of the ui with JOptionPane.
+ * @author Simon Gao
+ * @version 2024-09-22
+ */
 class JOptionPaneUI(wordtrainer: Wordtrainer, val filename: String?) : Userinterface(wordtrainer) {
 
     init {
-        // TODO read from file
-        if (filename != null) {}
+        if (filename != null) {
+            wordtrainer.loadFrom(JsonFileReadWriter(filename))
+        }
     }
 
     override fun start() {
@@ -43,7 +49,7 @@ class JOptionPaneUI(wordtrainer: Wordtrainer, val filename: String?) : Userinter
 
         // save the wordtrainer
         if(filename != null) {
-            // TODO
+            wordtrainer.saveTo(JsonFileReadWriter(filename))
         }
     }
 

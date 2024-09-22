@@ -3,22 +3,10 @@
  */
 package at.gao
 
-import java.net.URL
-
 fun main() {
     println("Enter a filename (or empty to skip):")
 
     val filename = readlnOrNull()
 
-    JOptionPaneUI(
-                    Wordtrainer(
-                            mutableListOf(
-                                // TODO remove if save/load is implemented
-                                    Pair("word1", URL("https://picsum.photos/200")),
-                                    Pair("word2", URL("file:///home/venti/Bilder/venti-icon.jpg")),
-                            )
-                    ),
-                    filename
-            )
-            .start()
+    JOptionPaneUI(Wordtrainer(mutableListOf()), filename).start()
 }
