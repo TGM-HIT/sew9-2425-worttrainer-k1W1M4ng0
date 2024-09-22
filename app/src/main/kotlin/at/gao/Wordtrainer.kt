@@ -3,10 +3,16 @@ package at.gao
 import java.net.URL
 import java.util.Random
 import kotlin.collections.mutableListOf
+import org.json.*
 
-class Wordtrainer(
-        private var wordList: MutableList<Pair<String, URL>> = mutableListOf(defaultPair)
-) {
+/**
+ * This class is a model class for a game of wordtrainer. It contains a list of word+url pairs, and
+ * allows a random or manual selection of one pair. Also tracks statistics that get updated after
+ * each guess.
+ * @author Simon Gao
+ * @version 2024-09-22
+ */
+class Wordtrainer(var wordList: MutableList<Pair<String, URL>> = mutableListOf(defaultPair)) {
     private var selected = -1
     private val random = Random()
 
@@ -16,6 +22,7 @@ class Wordtrainer(
      * Returns the current selected pair, or throws an exception if nothing is selected
      * @return the word and url, as pair
      */
+    @JSONPropertyIgnore
     fun getCurrentPair(): Pair<String, URL> {
         if (selected < 0) throw NoPairSelectedException()
 
@@ -64,6 +71,22 @@ class Wordtrainer(
         ++statistics.totalAnswers
 
         return correct
+    }
+
+    /**
+     * Saves this wordtrainer with a specified strategy.
+     * @param strategy the strategy to use
+     */
+    fun saveTo(strategy: ReadWriter) {
+        strategy.saveTo(this)
+    }
+
+    /**
+     * Loads this wordtrainer with a specified strategy.
+     * @param strategy the strategy to use
+     */
+    fun loadFrom(strategy: ReadWriter) {
+        strategy.loadFrom(this)
     }
 
     /** class to store statistics */

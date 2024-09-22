@@ -2,7 +2,7 @@
 
 class Wordtrainer {
     - selected: Integer
-    - wordList: List<Pair<String, URL>>
+    + wordList: List<Pair<String, URL>>
 
     + Wordtrainer()
     + Wordtrainer(wordList: List<Pair<String, URL>>)
