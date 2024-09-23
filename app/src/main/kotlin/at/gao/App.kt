@@ -8,5 +8,5 @@ fun main() {
 
     val filename = readlnOrNull()
 
-    JOptionPaneUI(Wordtrainer(mutableListOf()), filename).start()
+    JOptionPaneUI(Wordtrainer(), filename).start()
 }
