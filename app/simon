@@ -1,0 +1,16 @@
+{
+  "wordList": [
+    {
+      "first": "test",
+      "second": "https://picsum.photos/200"
+    },
+    {
+      "first": "test2",
+      "second": "https://picsum.photos/200"
+    }
+  ],
+  "statistics": {
+    "totalAnswers": 7,
+    "correctAnswers": 3
+  }
+}
