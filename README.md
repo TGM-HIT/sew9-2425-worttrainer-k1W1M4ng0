@@ -40,13 +40,7 @@ The input is then checked for spelling mistakes and a message will be printed.
 
 ### Prerequisites
 
-To run this game, you need java 21:
-
-
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+To run this game, you need java 21.
 
 ### Installation
 
